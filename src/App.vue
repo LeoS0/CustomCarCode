@@ -1,32 +1,51 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <nav>
+      <img src="https://www.volvocars.com/static/shared/images/volvo-wordmark-black.svg" alt="Logo" width="200" />
+    </nav>
+    <router-view />
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  padding: 0;
+  margin: 0;
 }
 
-#nav {
-  padding: 30px;
+html,
+body {
+  @import url(//db.onlinewebfonts.com/c/25cb6845cb99afb2f536ee7861d32413?family=Volvo+Novum);
+  font-family: Volvo Novum, Helvetica, Arial, sans-serif;
+  color: #222222;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+a {
+  text-decoration: none;
+  color: #1c6bba;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+h1 {
+  font-size: 1.7rem;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+nav {
+  background: #fafafa;
+  text-align: center;
+  height: 10vh;
+  width: 100%;
+
+  img {
+    height: 100%;
   }
 }
 </style>
