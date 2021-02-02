@@ -1,51 +1,42 @@
 <template>
   <div id="app">
+    <div class="status" v-if="!online">
+      <p>You are currently offline.</p>
+    </div>
     <nav>
-      <img src="https://www.volvocars.com/static/shared/images/volvo-wordmark-black.svg" alt="Logo" width="200" />
+      <img v-if="this.$route.name !== 'Home'" src="https://www.volvocars.com/static/shared/images/volvo-wordmark-black.svg" alt="Logo" width="200" />
     </nav>
     <router-view />
   </div>
 </template>
 
-<style lang="scss">
-* {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  padding: 0;
-  margin: 0;
-}
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+      online: true,
+    };
+  },
+  created() {
+    this.getOnlineStatus().then((isOnline) => {
+      if (isOnline === 'Online') {
+        this.status = true;
+      } else {
+        this.status = false;
+      }
+    });
+  },
+  methods: {
+    async getOnlineStatus() {
+      if (navigator.onLine) {
+        return fetch(location.origin, { method: 'HEAD' })
+          .then(() => true)
+          .catch(() => false);
+      }
 
-html,
-body {
-  @import url(//db.onlinewebfonts.com/c/25cb6845cb99afb2f536ee7861d32413?family=Volvo+Novum);
-  font-family: Volvo Novum, Helvetica, Arial, sans-serif;
-  color: #222222;
-}
-
-a {
-  text-decoration: none;
-  color: #1c6bba;
-}
-
-h1 {
-  font-size: 1.7rem;
-}
-
-p {
-  font-size: 1.2rem;
-  color: #666;
-}
-
-nav {
-  background: #fafafa;
-  text-align: center;
-  height: 10vh;
-  width: 100%;
-
-  img {
-    height: 100%;
-  }
-}
-</style>
+      return new Promise((resolve) => resolve(false));
+    },
+  },
+};
+</script>

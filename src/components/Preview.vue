@@ -50,7 +50,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scroped>
+<style lang="scss" scoped>
 .preview {
   justify-content: center;
   align-items: center;
