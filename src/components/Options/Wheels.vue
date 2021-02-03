@@ -5,7 +5,7 @@
       <img :src="wheels.image" alt="Wheels" width="60" />
       <p>{{ wheels.name }}<br /></p>
     </li>
-    <li class="controls next" @click="nextStep">Complete</li>
+    <li class="controls next" @click="nextStep">Next</li>
   </ul>
   <ul v-else>
     <p>No Wheels</p>

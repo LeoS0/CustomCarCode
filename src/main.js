@@ -7,10 +7,10 @@ import store from './store';
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
 import './main.scss';
 
-Vue.config.productionTip = false;
-
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
+
+Vue.config.productionTip = false;
 
 new Vue({
   router,

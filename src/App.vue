@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <GlobalEvents @offline="setOffline" @online="setOnline" />
     <div class="status" v-if="!online">
       <p>You are currently offline.</p>
     </div>
@@ -11,31 +12,24 @@
 </template>
 
 <script>
+import GlobalEvents from 'vue-global-events';
+
 export default {
   name: 'App',
+  components: { GlobalEvents },
   data() {
     return {
       online: true,
     };
   },
-  created() {
-    this.getOnlineStatus().then((isOnline) => {
-      if (isOnline === 'Online') {
-        this.status = true;
-      } else {
-        this.status = false;
-      }
-    });
-  },
   methods: {
-    async getOnlineStatus() {
-      if (navigator.onLine) {
-        return fetch(location.origin, { method: 'HEAD' })
-          .then(() => true)
-          .catch(() => false);
-      }
-
-      return new Promise((resolve) => resolve(false));
+    setOnline() {
+      console.log('Online');
+      this.online = true;
+    },
+    setOffline() {
+      console.log('Offline');
+      this.online = false;
     },
   },
 };

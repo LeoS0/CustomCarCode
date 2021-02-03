@@ -53,7 +53,7 @@ export default new Vuex.Store({
   },
   actions: {
     getData(state) {
-      Vue.axios.get('http://localhost:8080/json/data.json').then((response) => {
+      Vue.axios.get('https://leos0.github.io/website/json/data.json').then((response) => {
         state.commit('addData', response.data);
       });
     },
