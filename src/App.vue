@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <GlobalEvents @offline="setOffline" @online="setOnline" />
+    <GlobalEvents @offline="setOffline" @online="setOnline" target="window" />
     <div class="status" v-if="!online">
       <p>You are currently offline.</p>
     </div>
