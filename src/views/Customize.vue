@@ -1,19 +1,22 @@
 <template>
   <div class="wrapper">
+    <Toggle @toggleLayout="collapseLayout" />
     <Preview :cars="cars" :position="position" />
-    <Options :cars="cars" :position="position" />
+    <Options :cars="cars" :position="position" v-if="show" />
   </div>
 </template>
 
 <script>
 import Preview from '@/components/Preview.vue';
 import Options from '@/components/Options.vue';
+import Toggle from '../components/Toggle.vue';
 
 export default {
   name: 'Customize',
   components: {
     Preview,
     Options,
+    Toggle,
   },
   created() {
     this.$store.dispatch('getData');
@@ -31,9 +34,17 @@ export default {
       return this.$store.state.position;
     },
   },
+  data() {
+    return {
+      show: true,
+    };
+  },
   methods: {
     getSelected() {
       this.selectedCar = this.$route.params.name;
+    },
+    collapseLayout() {
+      this.show = !this.show;
     },
   },
   watch: {
