@@ -64,40 +64,40 @@ export default {
   text-align: center;
   height: 20vh;
   width: 100%;
-}
 
-.options ul,
-.completed {
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  display: flex;
-  height: 100%;
-}
+  ul,
+  .completed {
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    display: flex;
+    height: 100%;
+  }
 
-.options ul li {
-  display: inline;
-}
+  ul li {
+    display: inline;
+  }
 
-.options form {
-  align-items: baseline;
-  display: flex;
-}
+  form {
+    align-items: baseline;
+    display: flex;
+  }
 
-.options input {
-  margin-top: 0.5rem;
-  border-radius: 0;
-}
+  input {
+    margin-top: 0.5rem;
+    border-radius: 0;
+  }
 
-.options button {
-  border-radius: 0;
-}
+  button {
+    border-radius: 0;
+  }
 
-.completed {
-  flex-direction: column;
-}
+  .completed {
+    flex-direction: column;
+  }
 
-.completed p {
-  margin-top: 0.5rem;
+  .completed p {
+    margin-top: 0.5rem;
+  }
 }
 </style>
